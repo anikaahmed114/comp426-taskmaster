@@ -30,7 +30,10 @@ function Home() {
 
     const handleDelete = (id) => {
         axios.delete(`http://localhost:3001/delete/${id}`)
-            .then(result => window.location.reload())
+            .then(response => {
+                const updatedTodos = todos.filter(todo => todo._id !== id);
+                setTodos(updatedTodos);
+            })
             .catch(err => console.log(err));
     };
 
