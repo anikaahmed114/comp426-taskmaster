@@ -5,6 +5,7 @@ import axios from 'axios'
 import { BsCircleFill, BsFillCheckCircleFill, BsFillTrashFill} from "react-icons/bs";
 import WeatherWidget from '../WeatherWidget';
 import RandomQuote from '../RandomQuote';
+import MyCalendar from '../Calendar';
 
 function Home(){
     const [todos, setTodos] = useState([])
@@ -64,6 +65,11 @@ function Home(){
         <h1>Words of Inspiration</h1>
         <RandomQuote />
       </header>
+    </div>
+    <br></br>
+    <br></br>
+    <div className="text-center">
+      <MyCalendar />
     </div>
             </div>
             
