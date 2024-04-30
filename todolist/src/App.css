@@ -1,12 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Josefin+Sans:ital@1&family=Outfit:wght@100..900&display=swap');
 
+.App-Container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+.App {
+  grid-row: 1;
+  grid-column: 1;
+  z-index: 10;
+  height: 100vh;
+  background-color: #f7f7f7e6;
+}
+
+.App-Background {
+  grid-row: 1;
+  grid-column: 1;
+  z-index: -1;
+  height: 50%;
+}
+
 body{
   font-family: 'Outfit', sans-serif; 
   font-size: 20px;
 }
 
 .home {
-  display: flex;
   flex-direction: row; /* Align children side by side */
   align-items: flex-start; /* Align items to the start of the flex direction */
   margin: 20px;
@@ -34,7 +54,8 @@ body{
   border: none;
   border-bottom: 2px solid rgb(100, 100, 142); /* Dark green to match the button */
   outline: none;
-  color: #4CAF50; /* Green text for contrast */
+  color: #071b35; /* Green text for contrast */
+  background-color: #f7f7f7e6;
 }
 
 .create_form input, .task {
@@ -42,12 +63,19 @@ body{
   font-size: 20px;
 }
 
+
 .create_form button {
-  padding: 10px;
-  background-color: transparent;
-  color: rgb(100, 100, 142); /* White text for better visibility */
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  background-color: #87b9dcee;
+  color: #071b35;
+  font-weight: bolder;
   cursor: pointer;
-  border: none; /* Remove border for a cleaner look */
+}
+
+.create_form button:hover {
+  background-color: #709ebf;
 }
 
 .task {
@@ -56,11 +84,21 @@ body{
   width: 345px; /* Adjusted width if needed */
   justify-content: space-between;
   background-color: #FFF; /* Light background for tasks */
-  color: black; /* Dark text for readability */
+  color: #071b35; /* Dark text for readability */
   height: 35px;
   padding: 5px;
   border: 1px solid #DDD; /* Light border for subtle definition */
   margin-top: 5px; /* Slightly more space between tasks */
+}
+
+.taskContainer h2 {
+  background-color: #87b9dc51;
+  color: #071b35;
+  width: 350px;
+  text-align: center;
+}
+.taskContainer h3 {
+  color: #071b35;
 }
 
 .checkbox {
@@ -77,4 +115,107 @@ body{
   cursor: pointer;
   margin-right: 5px; /* Adjusted spacing */
   font-size: 15px;
+}
+
+.weather {
+  float: right;
+  margin-top: 5px;
+  width: 300px;
+  height: 50px;
+}
+
+.weather input:hover {
+  border-color: #999;
+}
+
+.weather button{
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #87b9dcee;
+  color: #071b35;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.weather button:hover {
+  background-color: #709ebf;
+}
+
+.image {
+  background-image: url('./assets/rain.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+  background-position: center;
+  float: right;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.quotes {
+  color: #70a6e8;
+  width: 350px;
+  text-align: center;
+}
+
+.quotes h1 {
+  font-size: 30px;
+  color: #071b35;
+  background-color: #87b9dc51;
+}
+
+.quotes button {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #87b9dcee;
+  color: #071b35;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.quotes button:hover {
+  background-color: #709ebf;
+}
+
+.calendar {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 310px;
+  transform: translate(-50%);
+  left: 47%;
+}
+
+.banner {
+  /* text-align: center;
+  width: fit-content;
+  height: fit-content;
+  position: relative; */
+  font-size: 50px;
+  font-weight: bolder;
+  text-align: center;
+  width: fit-content;
+  position: absolute;
+  top: 120px;
+  left: 47%;
+  transform: translate(-50%);
+  background-color: #87b9dc51;
+  padding: 10px 100px;
+  color: #071b35;
+}
+
+.oldwell {
+  background-image: url('./assets/oldwell.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 350px;
+  height: 530px;
+  background-position: center;
+  right: 80px;
+  top: 330px;
+  position: absolute;
+
 }

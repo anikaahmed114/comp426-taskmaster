@@ -10,7 +10,7 @@ const EventComponent = ({ event, onEventDelete }) => {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '5px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', fontSize: '10px', width: 'fit-content' }}>
             <span>{event.title}</span>
             <BsFillTrashFill
                 className='icon'
