@@ -18,9 +18,14 @@ function Home() {
     }, []);
 
     const handleEdit = (id) => {
-        axios.put(`http://localhost:3001/update/${id}`)
-            .then(result => window.location.reload())
-            .catch(err => console.log(err));
+        const updatedTodos = todos.map(todo => {
+            if (todo._id === id) {
+                return { ...todo, done: !todo.done };
+            } else {
+                return todo;
+            }
+        });
+        setTodos(updatedTodos);
     };
 
     const handleDelete = (id) => {
