@@ -36,11 +36,18 @@ function Home() {
 
     return (
         <div className="home">
+            <div className='banner'>
+                taskmaster
+            </div>
+            <div className='image'></div>
+            <div className="weather">
+                    <WeatherWidget />
+                </div>
             <div className="taskContainer">
                 <h2>todos.</h2>
                 <Create />
                 {todos.length === 0 ? (
-                    <div><h2>no tasks yet</h2></div>
+                    <div><h3>no tasks yet</h3></div>
                 ) : (
                     todos.map(todo => (
                         <div className="task" key={todo._id}>
@@ -53,17 +60,15 @@ function Home() {
                     ))
                 )}
             </div>
-            <div className="text-center">
-                <header className="App-header">
-                    <WeatherWidget />
-                </header>
-                <header className="App-header">
+                <div className="quotes">
                     <h1>quotes</h1>
                     <RandomQuote />
-                </header>
-                <MyCalendar />
+                </div>
+                <div className='calendar'>
+                    <MyCalendar />
+                </div>
+                <div className='oldwell'></div>
             </div>
-        </div>
     );
 }
 

@@ -43,9 +43,9 @@ const WeatherWidget = () => {
                     type="text"
                     value={location}
                     onChange={handleInputChange}
-                    placeholder="Enter a city, state."
+                    placeholder="enter a city, state"
                 />
-                <button type="submit">Get Weather</button>
+                <button type="submit">get weather</button>
             </form>
             {error && <p>{error}</p>}
             {weather && (

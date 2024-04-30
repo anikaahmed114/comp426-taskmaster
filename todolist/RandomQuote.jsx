@@ -26,7 +26,7 @@ const RandomQuote = () => {
                 "{quote.content}"
                 <footer>— {quote.author}</footer>
             </blockquote>
-            <button onClick={fetchQuote}>Get Another Quote</button>
+            <button onClick={fetchQuote}>get another quote</button>
         </div>
     );
 };
