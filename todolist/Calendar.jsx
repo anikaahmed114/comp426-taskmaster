@@ -6,6 +6,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import EventComponent from './src/EventComponent'; 
 
 
+
 const localizer = momentLocalizer(moment);
 
 const MyCalendar = () => {
@@ -79,7 +80,8 @@ const MyCalendar = () => {
 
     return (
         <div style={{ width: '100%', height: '500px' }}>
-        <button onClick={handleDeleteAllEvents}>delete all</button>
+        <button style={{ padding: '5px', border: 'none', borderRadius: '5px', backgroundColor: '#87b9dcee', color: '071b35', fontWeight: 'bolder', cursor: 'pointer' }} 
+            onClick={handleDeleteAllEvents} onMouseEnter={(e) => e.target.style.backgroundColor = '#709ebf'} onMouseLeave={(e) => e.target.style.backgroundColor = '#87b9dcee'}>delete all</button>
             <Calendar
                 localizer={localizer}
                 events={events}
