@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './src/WidgetStyle.css';
 
 const RandomQuote = () => {
     const [quote, setQuote] = useState({ content: '', author: '' });
@@ -21,7 +22,7 @@ const RandomQuote = () => {
     }, []);
 
     return (
-        <div>
+        <div className="quote-widget">
             <blockquote>
                 "{quote.content}"
                 <footer>— {quote.author}</footer>

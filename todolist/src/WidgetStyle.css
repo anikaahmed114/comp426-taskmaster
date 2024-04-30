@@ -1,0 +1,38 @@
+/* WidgetStyles.css */
+
+/* General styling for all widgets */
+.widget-container {
+    display: flex;
+    justify-content: space-around; /* Distributes space evenly between widgets */
+    padding: 20px;
+    background-color: #f4f4f4; /* Light grey background for better visibility */
+    font-family: Arial, sans-serif;
+
+}
+
+/* Styling for each individual widget */
+.weather-widget, .quote-widget {
+    flex: 1;  /* Each widget takes equal width */
+    margin: 10px;
+    padding: 20px;
+    background-color: #add8e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+
+}
+
+.weather-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centering content within weather widget */
+    font-family: Arial, sans-serif;
+
+}
+
+.quote-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centering content within quote widget */
+    font-family: Arial, sans-serif;
+}

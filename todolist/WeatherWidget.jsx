@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './src/WidgetStyle.css';
 
 const WeatherWidget = () => {
     const [location, setLocation] = useState('');
@@ -37,7 +38,7 @@ const WeatherWidget = () => {
     };
 
     return (
-        <div>
+        <div className="weather-widget">
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
