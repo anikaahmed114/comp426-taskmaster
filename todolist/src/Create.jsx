@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
+import './App.css'
 
 function Create(){
     const[task, setTask] = useState()
@@ -11,8 +12,8 @@ function Create(){
         }
     return (
         <div className = 'create_form'>
-            <input type = "text" placeholder = 'Enter Task' onChange={(e) => setTask(e.target.value)}/>
-            <button type = "button" onClick={handleAdd}>Add</button>
+            <input type = "text" placeholder = 'enter task' onChange={(e) => setTask(e.target.value)}/>
+            <button type = "button" onClick={handleAdd}>add</button>
     </div>
     )
 }

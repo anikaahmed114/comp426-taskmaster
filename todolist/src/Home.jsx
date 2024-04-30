@@ -6,74 +6,60 @@ import { BsCircleFill, BsFillCheckCircleFill, BsFillTrashFill} from "react-icons
 import WeatherWidget from '../WeatherWidget';
 import RandomQuote from '../RandomQuote';
 import MyCalendar from '../Calendar';
+import './App.css'
 
-function Home(){
-    const [todos, setTodos] = useState([])
+function Home() {
+    const [todos, setTodos] = useState([]);
+
     useEffect(() => {
         axios.get('http://localhost:3001/get')
-        .then(result => setTodos(result.data))
-        .catch(err => console.log(err))
-    }, [])
+            .then(result => setTodos(result.data))
+            .catch(err => console.log(err));
+    }, []);
 
     const handleEdit = (id) => {
-        axios.put('http://localhost:3001/update/'+id)
-        .then(result => {
-            location.reload()})
-        .catch(err => console.log(err))
-
-    }
+        axios.put(`http://localhost:3001/update/${id}`)
+            .then(result => window.location.reload())
+            .catch(err => console.log(err));
+    };
 
     const handleDelete = (id) => {
-        axios.delete('http://localhost:3001/delete/'+id)
-        .then(result => {
-            location.reload()})
-        .catch(err => console.log(err))
-    }
-    return (
-        <div className='home'>
-            <h2>Todo List</h2>
-            <Create />
-            {
-                todos.length === 0 ? 
-                <div><h2>no tasks yet</h2></div>:
-                todos.map(todo => (
-                    <div className = 'task' key={todo._id}>
-                        <div className = 'checkbox' onClick={() => handleEdit(todo._id)}>
-                            {todo.done ? <BsFillCheckCircleFill className='icon'></BsFillCheckCircleFill>
-                            : <BsCircleFill className = 'icon'/>
+        axios.delete(`http://localhost:3001/delete/${id}`)
+            .then(result => window.location.reload())
+            .catch(err => console.log(err));
+    };
 
-                            }
-                        <p className = {todo.done ? "line_through": ""}>{todo.task}</p>
+    return (
+        <div className="home">
+            <div className="taskContainer">
+                <h2>todos.</h2>
+                <Create />
+                {todos.length === 0 ? (
+                    <div><h2>no tasks yet</h2></div>
+                ) : (
+                    todos.map(todo => (
+                        <div className="task" key={todo._id}>
+                            <div className="checkbox" onClick={() => handleEdit(todo._id)}>
+                                {todo.done ? <BsFillCheckCircleFill className="icon" /> : <BsCircleFill className="icon" />}
+                                <p className={todo.done ? "line_through" : ""}>{todo.task}</p>
+                            </div>
+                            <span><BsFillTrashFill className="icon" onClick={() => handleDelete(todo._id)} /></span>
                         </div>
-                        <div>
-                            <span><BsFillTrashFill className = 'icon' onClick={() => handleDelete(todo._id)}/></span>
-                            </div>
-                            </div>
-                ))
-                }
-                <br></br>
-      <br></br>
-      <div className="text-center">
-      <header className="App-header">
-        <WeatherWidget/>
-      </header>
-    </div>
-    <br></br>
-    <br></br>
-    <div className="text-center">
-      <header className="App-header">
-        <h1>Words of Inspiration</h1>
-        <RandomQuote />
-      </header>
-    </div>
-    <br></br>
-    <br></br>
-    <div className="text-center">
-      <MyCalendar />
-    </div>
+                    ))
+                )}
             </div>
-            
-    ) 
+            <div className="text-center">
+                <header className="App-header">
+                    <WeatherWidget />
+                </header>
+                <header className="App-header">
+                    <h1>quotes</h1>
+                    <RandomQuote />
+                </header>
+                <MyCalendar />
+            </div>
+        </div>
+    );
 }
 
-export default Home
+export default Home;
