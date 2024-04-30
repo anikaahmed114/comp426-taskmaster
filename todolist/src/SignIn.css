@@ -1,0 +1,49 @@
+/* src/SignIn.css */
+
+/* General form container styling */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+
+/* Form styling */
+.auth-form {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 320px;
+    font-family: Arial, sans-serif;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Makes sure padding doesn't affect width */
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+}
+
+.auth-form button:hover {
+    background-color: #004494;
+}
+
+.auth-form-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
