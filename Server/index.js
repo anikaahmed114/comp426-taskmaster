@@ -65,10 +65,19 @@ app.put('/events/:id', (req, res) => {
 
 // Delete an event
 app.delete('/events/:id', (req, res) => {
-    const { id } = req.params.id;
+    const { id } = Number(req.param);
     EventModel.findByIdAndDelete(id)
     .then(result => res.json(result))
     .catch(err => res.status(500).json(err));
+});
+
+//Delete all
+app.delete('/events', (req, res) => {
+    EventModel.deleteMany({})
+        .then(deletedEvents => {
+            res.json({ message: "All events deleted successfully" });
+        })
+        .catch(err => res.status(500).json({ message: "Internal server error", error: err }));
 });
 
 app.listen(3001, () => {
