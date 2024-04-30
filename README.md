@@ -21,6 +21,9 @@ Taskmaster is a task manager application with additional features including a we
 **Calendar Widget:**
 - Click on calendar to access your personal Google Calendar
 
+**Quotes Widget:**
+- Click on the button to access new inspirational quotes
+
 # Developers
 - Abigail Seo: (github page add later)
 - Anika Ahmed:
