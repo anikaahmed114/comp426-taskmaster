@@ -1,0 +1,71 @@
+/* src/NavigationStyles.css */
+
+/* General styling for the navigation bar */
+.nav-container {
+    background-color: #333; /* Dark background for the nav bar */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Logo styling if you have one */
+.nav-logo {
+    color: #fff;
+    font-weight: medium;
+    text-decoration: none;
+    align-items: center;
+}
+
+/* Container for navigation links */
+.nav-links {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Flexbox for horizontal layout */
+    align-items: center;
+}
+
+/* Individual link styling */
+.nav-links li {
+    margin: 0 10px; /* Spacing between each link */
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover, 
+.nav-links a:focus {
+    background-color: #555; /* Lighter background on hover/focus */
+    color: #ffd700; /* Gold color on hover/focus */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block; /* Makes links fill their container */
+    }
+}

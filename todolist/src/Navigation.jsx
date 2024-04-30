@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Navigation.css';
 
 const Navigation = ({ isLoggedIn, onLogout }) => {
   return (
-    <nav>
-      <ul>
+    <nav className="nav-container">
+      <ul className="nav-links">
         <li>
-          <Link to="/home">Home</Link>
+          <Link to="/home" className="nav-logo">Home</Link>
         </li>
         {isLoggedIn ? (
           <>
@@ -17,10 +18,10 @@ const Navigation = ({ isLoggedIn, onLogout }) => {
         ) : (
           <>
             <li>
-              <Link to="/signin">Sign In</Link>
+              <Link to="/signin" className="nav-logo">Sign In</Link>
             </li>
             <li>
-              <Link to="/signup">Sign Up</Link>
+              <Link to="/signup" className="nav-logo">Sign Up</Link>
             </li>
           </>
         )}

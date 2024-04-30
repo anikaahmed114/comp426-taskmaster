@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import './SignIn.css';
 
 const SignUpForm = ({ onLogin }) => {
   const [email, setEmail] = useState('');
@@ -27,7 +28,9 @@ const SignUpForm = ({ onLogin }) => {
   const isInvalid = password === '' || email === '';
 
   return (
-    <form onSubmit={onSubmit}>
+    <div className="form-container">
+    <form className="auth-form" onSubmit={onSubmit}>
+      <h2 className="auth-form-title">Sign Up</h2>
       <input
         name="email"
         value={email}
@@ -47,6 +50,7 @@ const SignUpForm = ({ onLogin }) => {
       </button>
       {error && <p>{error}</p>}
     </form>
+    </div>
   );
 };
 

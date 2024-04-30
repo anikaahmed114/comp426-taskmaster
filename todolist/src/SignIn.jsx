@@ -23,7 +23,9 @@ const SignInForm = ({ onLogin }) => {
   const isInvalid = password === '' || email === '';
 
   return (
-    <form onSubmit={onSubmit}>
+    <div className="form-container">
+    <form className="auth-form" onSubmit={onSubmit}>
+      <h2 className="auth-form-title">Sign In</h2>
       <input
         name="email"
         value={email}
@@ -43,6 +45,7 @@ const SignInForm = ({ onLogin }) => {
       </button>
       {error && <p>{error}</p>}
     </form>
+    </div>
   );
 }
 
