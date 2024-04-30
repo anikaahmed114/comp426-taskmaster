@@ -181,7 +181,7 @@ body{
 }
 
 .calendar {
-  width: fit-content;
+  width: 40%;
   height: fit-content;
   position: absolute;
   top: 310px;
