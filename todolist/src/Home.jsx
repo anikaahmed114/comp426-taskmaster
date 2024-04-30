@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react'
 import Create from './Create'
 import axios from 'axios'
 import { BsCircleFill, BsFillCheckCircleFill, BsFillTrashFill} from "react-icons/bs";
-
+import WeatherWidget from '../WeatherWidget';
+import RandomQuote from '../RandomQuote';
+import MyCalendar from '../Calendar';
 
 function Home(){
     const [todos, setTodos] = useState([])
@@ -49,7 +51,28 @@ function Home(){
                             </div>
                 ))
                 }
+                <br></br>
+      <br></br>
+      <div className="text-center">
+      <header className="App-header">
+        <WeatherWidget/>
+      </header>
+    </div>
+    <br></br>
+    <br></br>
+    <div className="text-center">
+      <header className="App-header">
+        <h1>Words of Inspiration</h1>
+        <RandomQuote />
+      </header>
+    </div>
+    <br></br>
+    <br></br>
+    <div className="text-center">
+      <MyCalendar />
+    </div>
             </div>
+            
     ) 
 }
 
