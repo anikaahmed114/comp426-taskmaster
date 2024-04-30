@@ -3,6 +3,8 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import axios from 'axios';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import EventComponent from './src/EventComponent'; 
+
 
 const localizer = momentLocalizer(moment);
 
@@ -67,20 +69,22 @@ const MyCalendar = () => {
     };
 
     return (
-        <div>
+        <div style={{ width: '100%', height: '500px' }}> {/* Adjust height to your preference */}
             <Calendar
                 localizer={localizer}
                 events={events}
                 startAccessor="start"
                 endAccessor="end"
-                style={{ height: 500 }}
+                style={{ width: '100%', height: '100%' }}
                 selectable
                 views={['month', 'week', 'day', 'agenda']}
                 defaultView={view}
                 onView={handleViewChange}
                 onSelectSlot={handleSelectSlot}
                 onSelectEvent={handleSelectEvent}
-                onDoubleClickEvent={handleDeleteEvent}
+                components={{
+                    event: props => <EventComponent {...props} onEventDelete={handleDeleteEvent} />
+                }}
             />
         </div>
     );

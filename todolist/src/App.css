@@ -1,70 +1,80 @@
-.App-Container {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
-}
-.App {
-  grid-row: 1;
-  grid-column: 1;
-  z-index: 10;
-}
-.App-Background {
-  grid-row: 1;
-  grid-column: 1;
-  z-index: -1;
-  height: 50%;
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Josefin+Sans:ital@1&family=Outfit:wght@100..900&display=swap');
+
+body{
+  font-family: 'Outfit', sans-serif; 
+  font-size: 20px;
 }
 
-.home{
+.home {
+  display: flex;
+  flex-direction: row; /* Align children side by side */
+  align-items: flex-start; /* Align items to the start of the flex direction */
+  margin: 20px;
+  width: 100%;
+}
+
+.taskContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 300px; /* Set a specific width */
+  align-items: center; /* Center align the tasks */
+  margin: 20px; /* Add some margin to separate from the next container */
 }
 
-.create_form input{
+.text-center {
+  flex-grow: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align the content */
+}
+
+.create_form input {
   width: 300px;
   padding: 10px;
-  border-bottom: 2px solid;
+  border: none;
+  border-bottom: 2px solid rgb(100, 100, 142); /* Dark green to match the button */
   outline: none;
+  color: #4CAF50; /* Green text for contrast */
+}
+
+.create_form input, .task {
+  font-family: 'Outfit', sans-serif; 
+  font-size: 20px;
 }
 
 .create_form button {
   padding: 10px;
-  background-color: black;
-  color: white;
+  background-color: transparent;
+  color: rgb(100, 100, 142); /* White text for better visibility */
   cursor: pointer;
+  border: none; /* Remove border for a cleaner look */
 }
 
-.task{
+.task {
   display: flex;
   align-items: center;
-  width: 345px;
+  width: 345px; /* Adjusted width if needed */
   justify-content: space-between;
-  background-color: black;
-  color: white;
+  background-color: #FFF; /* Light background for tasks */
+  color: black; /* Dark text for readability */
   height: 35px;
-  padding: 2px 5px 2px 5px;
-  margin-top: 2px;
+  padding: 5px;
+  border: 1px solid #DDD; /* Light border for subtle definition */
+  margin-top: 5px; /* Slightly more space between tasks */
 }
 
-.checkbox{
+.checkbox {
   display: flex;
   align-items: center;
+  flex-grow: 1; /* Allows text to fill the space */
 }
 
-.line_through {
+.task .line_through {
   text-decoration: line-through;
 }
 
-.checkbox .icon {
-  margin-right: 5px;
-  font-size: 15px;
-}
-
-.task div span {
-  margin: 0px 5px 0px 4px
-}
-
-.task div .icon {
+.task .icon {
   cursor: pointer;
+  margin-right: 5px; /* Adjusted spacing */
+  font-size: 15px;
 }
