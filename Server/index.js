@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const TodoModel = require('./Models/Todo')
+const EventModel = require('./Models/Event');
 
 const app = express()
 app.use(cors())
@@ -37,6 +38,38 @@ app.delete('/delete/:id', (req, res) => {
     .then(result => res.json(result))
     .catch(err => res.json(err))
 })
+
+// Get all events
+app.get('/events', (req, res) => {
+    EventModel.find()
+    .then(events => res.json(events))
+    .catch(err => res.status(500).json(err));
+});
+
+// Add a new event
+app.post('/events', (req, res) => {
+    const { title, start, end } = req.body;
+    EventModel.create({ title, start, end })
+    .then(event => res.json(event))
+    .catch(err => res.status(500).json(err));
+});
+
+// Update an event
+app.put('/events/:id', (req, res) => {
+    const { id } = req.params;
+    const { title, start, end } = req.body;
+    EventModel.findByIdAndUpdate(id, { title, start, end }, { new: true })
+    .then(event => res.json(event))
+    .catch(err => res.status(500).json(err));
+});
+
+// Delete an event
+app.delete('/events/:id', (req, res) => {
+    const { id } = req.params;
+    EventModel.findByIdAndDelete(id)
+    .then(result => res.json({ message: 'Event deleted successfully' }))
+    .catch(err => res.status(500).json(err));
+});
 
 app.listen(3001, () => {
     console.log("Server is running")

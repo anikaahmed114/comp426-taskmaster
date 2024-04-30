@@ -10,14 +10,13 @@ const MyCalendar = () => {
     const [events, setEvents] = useState([]);
     const [view, setView] = useState('month');
 
-    // Fetch events from the backend API
     useEffect(() => {
         fetchEvents();
     }, []);
 
     const fetchEvents = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/events');
+            const response = await axios.get('http://localhost:3001/events');
             const mappedEvents = response.data.map(event => ({
                 ...event,
                 start: new Date(event.start),
@@ -33,9 +32,9 @@ const MyCalendar = () => {
         const title = window.prompt('New Event name');
         if (title) {
             const newEvent = { title, start, end };
-            axios.post('http://localhost:5000/events', newEvent)
+            axios.post('http://localhost:3001/events', newEvent)
                 .then(response => {
-                    setEvents([...events, { ...newEvent, id: response.data.id, start, end }]);
+                    setEvents([...events, { ...newEvent, id: response.data._id, start: new Date(start), end: new Date(end) }]);
                 })
                 .catch(error => console.error('Error adding new event:', error));
         }
@@ -45,7 +44,7 @@ const MyCalendar = () => {
         const newTitle = window.prompt('Edit the event title', event.title);
         if (newTitle) {
             event.title = newTitle;
-            axios.put(`http://localhost:5000/events/${event.id}`, event)
+            axios.put(`http://localhost:3001/events/${event.id}`, { ...event, title: newTitle })
                 .then(response => {
                     fetchEvents();  // Refresh events to reflect the update
                 })
@@ -55,7 +54,7 @@ const MyCalendar = () => {
 
     const handleDeleteEvent = event => {
         if (window.confirm(`Are you sure you want to delete this event: ${event.title}?`)) {
-            axios.delete(`http://localhost:5000/events/${event.id}`)
+            axios.delete(`http://localhost:3001/events/${event.id}`)
                 .then(() => {
                     setEvents(events.filter(e => e.id !== event.id));
                 })
