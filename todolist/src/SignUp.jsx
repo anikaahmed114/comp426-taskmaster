@@ -28,28 +28,33 @@ const SignUpForm = ({ onLogin }) => {
   const isInvalid = password === '' || email === '';
 
   return (
+    <div className='parent-container'>
     <div className="form-container">
     <form className="auth-form" onSubmit={onSubmit}>
-      <h2 className="auth-form-title">Sign Up</h2>
+      <h2 className="auth-form-title">sign up</h2>
       <input
         name="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         type="email"
-        placeholder="Email Address"
+        placeholder="email address"
       />
       <input
         name="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         type="password"
-        placeholder="Password"
+        placeholder="password"
       />
       <button disabled={isInvalid} type="submit">
-        Sign Up
+        sign up
       </button>
       {error && <p>{error}</p>}
     </form>
+    </div>
+    <div className='background-container'></div>
+    <div className='banner-container'>welcome to taskmaster!</div>
+
     </div>
   );
 };

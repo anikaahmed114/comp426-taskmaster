@@ -5,6 +5,7 @@ import SignInFormV2 from './SignIn';
 import SignUpForm from './SignUp';
 import Navigation from './Navigation';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import './App.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null); // Initialize as null to handle loading state
@@ -35,17 +36,19 @@ function App() {
   }
 
   return (
+    <div className='App-Container'>
+        <div className='App'>
     <Router>
-      <div>
-        <Navigation isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+          <Navigation isLoggedIn={isLoggedIn} onLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Navigate replace to={isLoggedIn ? "/home" : "/signin"} />} />
           <Route path="/signin" element={<SignInFormV2 onLogin={() => setIsLoggedIn(true)} />} />
           <Route path="/signup" element={<SignUpForm onLogin={() => setIsLoggedIn(true)} />} />
           <Route path="/home" element={isLoggedIn ? <Home /> : <Navigate replace to="/signin" />} />
-        </Routes>
-      </div>
+        </Routes> 
     </Router>
+    </div>
+    </div>
   );
 }
 
