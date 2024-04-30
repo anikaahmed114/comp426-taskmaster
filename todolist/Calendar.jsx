@@ -1,10 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
+import { BsFillTrashFill } from 'react-icons/bs';
 import moment from 'moment';
 import axios from 'axios';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 const localizer = momentLocalizer(moment);
+
+const EventComponent = ({ event, onEventDelete }) => {
+    return (
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '5px' }}>
+            <span>{event.title}</span>
+            <BsFillTrashFill
+                className='icon'
+                onClick={(e) => {
+                    e.stopPropagation(); // Prevent the calendar from also selecting the event
+                    if (window.confirm(`Are you sure you want to delete this event: ${event.title}?`)) {
+                        onEventDelete(event);
+                    }
+                }}
+                style={{ cursor: 'pointer' }}
+            />
+        </div>
+    );
+};
 
 const MyCalendar = () => {
     const [events, setEvents] = useState([]);
@@ -67,20 +86,22 @@ const MyCalendar = () => {
     };
 
     return (
-        <div>
+        <div style={{width: 300, height: 300, overflow: 'auto'}}>
             <Calendar
                 localizer={localizer}
                 events={events}
                 startAccessor="start"
                 endAccessor="end"
-                style={{ height: 500 }}
+                style={{ width: '100%', height: '100%' }}
                 selectable
                 views={['month', 'week', 'day', 'agenda']}
                 defaultView={view}
                 onView={handleViewChange}
                 onSelectSlot={handleSelectSlot}
                 onSelectEvent={handleSelectEvent}
-                onDoubleClickEvent={handleDeleteEvent}
+                components={{
+                    event: props => <EventComponent {...props} onEventDelete={handleDeleteEvent} />
+                }}
             />
         </div>
     );
