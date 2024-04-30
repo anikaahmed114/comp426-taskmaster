@@ -2,7 +2,7 @@
 
 /* General styling for the navigation bar */
 .nav-container {
-    background-color: #0056b3; /* Dark background for the nav bar */
+    background-color: #87b9dcee; 
     color: #fff;
     padding: 0.5rem 1rem;
     display: flex;
@@ -18,6 +18,19 @@
     font-weight: medium;
     text-decoration: none;
     align-items: center;
+}
+
+.logout {
+    background: #87b9dcee;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    color: white;
+}
+
+.logout:hover {
+    background-color: #669dc5d3;
 }
 
 /* Container for navigation links */
@@ -44,8 +57,7 @@
 
 .nav-links a:hover, 
 .nav-links a:focus {
-    background-color: #555; /* Lighter background on hover/focus */
-    color: #ffd700; /* Gold color on hover/focus */
+    background-color: #669dc5d3; /* Lighter background on hover/focus */
 }
 
 /* Responsive adjustments for smaller screens */
