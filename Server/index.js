@@ -65,7 +65,7 @@ app.put('/events/:id', (req, res) => {
 
 // Delete an event
 app.delete('/events/:id', (req, res) => {
-    const { id } = Number(req.param);
+    const { id } = req.params.id;
     EventModel.findByIdAndDelete(id)
     .then(result => res.json(result))
     .catch(err => res.status(500).json(err));
