@@ -87,7 +87,7 @@ const MyCalendar = () => {
                 endAccessor="end"
                 style={{ width: '100%', height: '100%', fontSize: '11px' }}
                 selectable
-                views={['month', 'week', 'day']}
+                views={['month', 'day']}
                 defaultView={view}
                 onView={handleViewChange}
                 onSelectSlot={handleSelectSlot}
