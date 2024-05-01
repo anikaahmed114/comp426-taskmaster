@@ -27,10 +27,6 @@ Taskmaster is a task manager application with additional features including a we
 **Resources:**
 - React, MongoDB, Firebase, OpenWeatherMapAPI, QuotableAPI
 
-**Live Demo**
-- Link: https://www.youtube.com/watch?v=sI39BFBtqFw&ab_channel=AbigailSeo
-- Disclaimer: Code in the video might be a bit blurry
-
 # Developers
 - Abigail Seo
 - Anika Ahmed
