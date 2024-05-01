@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { doSignInWithEmailAndPassword } from './components/Firebase/Firebase.jsx';
-import './index.css';
 import './SignIn.css';
 
 const SignInForm = ({ onLogin }) => {
