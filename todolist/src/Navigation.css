@@ -12,7 +12,6 @@
     font-family: Arial, sans-serif;
 }
 
-/* Logo styling if you have one */
 .nav-logo {
     color: #fff;
     font-weight: medium;
@@ -35,10 +34,10 @@
 
 /* Container for navigation links */
 .nav-links {
-    list-style-type: none; /* Removes default list styling */
+    list-style-type: none; 
     padding: 0;
     margin: 0;
-    display: flex; /* Flexbox for horizontal layout */
+    display: flex; 
     align-items: center;
 }
 
@@ -60,7 +59,7 @@
     background-color: #669dc5d3; /* Lighter background on hover/focus */
 }
 
-/* Responsive adjustments for smaller screens */
+
 @media (max-width: 600px) {
     .nav-container {
         flex-direction: column;
@@ -78,6 +77,6 @@
     }
 
     .nav-links a {
-        display: block; /* Makes links fill their container */
+        display: block; 
     }
 }

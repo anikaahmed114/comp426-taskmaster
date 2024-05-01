@@ -10,6 +10,7 @@ app.use(express.json())
 
 mongoose.connect('mongodb://localhost:27017/test')
 
+//tasks
 app.get('/get', (req, res) => {
     TodoModel.find()
     .then(result => res.json(result))
